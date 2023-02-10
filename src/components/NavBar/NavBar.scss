@@ -1,0 +1,40 @@
+nav {
+}
+
+nav section {
+	height: 100%;
+	max-width: 90%;
+	margin-inline: auto;
+}
+
+nav section .LogoSection {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+nav section .LogoSection .LogoBox {
+	width: 241px;
+	height: 66px;
+	position: relative;
+	margin: 17px 0px;
+}
+
+nav section .LogoSection .LogoBox div:nth-child(2) {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: 400;
+	color: black;
+}
+
+nav section .LogoSection .LogoBox img {
+	height: 66px;
+	width: 66px;
+}
+
+nav section .LogoSection .NavMenuItem {
+	// TODO
+}
