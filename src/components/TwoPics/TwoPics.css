@@ -1,0 +1,24 @@
+.TwoPicsContainer_Img1Container {
+  width: 691px;
+  position: relative;
+}
+
+@media all and (max-width: 1269px) {
+  .TwoPicsContainer_Img1Container {
+    width: 65%;
+  }
+}
+@media all and (max-width: 1023px) {
+  .TwoPicsContainer_Img1Container {
+    width: 85%;
+  }
+}
+.TwoPicsContainer_Img1Container_Heading {
+  position: absolute;
+  top: 16px;
+  left: 25px;
+  font-size: 18px;
+  line-height: 29px;
+  font-weight: 600;
+  color: white;
+}/*# sourceMappingURL=TwoPics.css.map */

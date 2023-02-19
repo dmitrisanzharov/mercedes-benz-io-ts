@@ -1,33 +1,159 @@
-nav section {
+.NavBar {
+  background-color: black;
+}
+
+.NavBar_Section {
   height: 100%;
   max-width: 90%;
   margin-inline: auto;
 }
 
-nav section .LogoSection {
+.NavBar_Section_HrLine {
+  border-bottom: 1px solid #9f9f9f;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 101px;
+  z-index: 1;
+}
+
+.NavBar_Section_LogoSection {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-nav section .LogoSection .LogoBox {
+.NavBar_Section_LogoSection_LogoBox {
   width: 241px;
   height: 66px;
   position: relative;
   margin: 17px 0px;
+  font-family: "Times New Roman", Times, serif;
 }
 
-nav section .LogoSection .LogoBox div:nth-child(2) {
+.NavBar_Section_LogoSection_LogoBox div:nth-child(2) {
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 19px;
+  line-height: 19px;
   font-weight: 400;
-  color: black;
+  color: white;
 }
 
-nav section .LogoSection .LogoBox img {
+.NavBar_Section_LogoSection_LogoBox img {
   height: 66px;
   width: 66px;
+}
+
+.NavBar_Section_LogoSection_NavMenuItemContainer {
+  display: flex;
+}
+
+.NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem {
+  padding: 26px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  color: #9f9f9f;
+  outline: none;
+  border: none;
+  border-top: 1px solid transparent;
+  background-color: transparent;
+  position: relative;
+}
+
+.NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem::before {
+  display: block;
+  content: attr(id);
+  font-weight: bold;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem:hover {
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem_Active {
+  color: #00a6e5;
+  font-weight: 700;
+}
+
+.NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem_TopBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 2px solid transparent;
+  width: 0%;
+  transition: width 0.25s ease-out;
+  z-index: 2;
+}
+
+.NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem_TopBorder_100pc {
+  width: 100%;
+  border-color: #00a6e5;
+}
+
+@media all and (max-width: 1279px) {
+  .NavBar_Section_LargeNavBarContainer,
+  .NavBar_Section_HrLine {
+    display: none;
+  }
+}
+@media all and (min-width: 1280px) {
+  .NavBar_Section_MediumContainer {
+    display: none;
+  }
+}
+.NavBar_Section_MediumContainer {
+  position: relative;
+}
+
+.NavBar_Section_MediumContainer_LogoHolder {
+  height: 96px;
+  width: 96px;
+  padding: 15px;
+  cursor: pointer;
+  margin-inline: auto;
+}
+
+.NavBar_Section_MediumContainer_HamburgerMenuButtonHolder {
+  width: 52px;
+  height: 49px;
+  position: absolute;
+  color: white;
+  top: 23px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.NavBar_Section_MediumContainer_HamburgerMenuButtonHolder:hover,
+.NavBar_Section_MediumContainer_HamburgerMenuButtonHolder--GrayBackground {
+  background-color: #272727;
+}
+
+.NavBar_Section_MediumContainer_HamburgerMenuButtonHolder img {
+  height: 15px;
+  width: 15px;
+}
+
+@media all and (max-width: 767px) {
+  .NavBar_Section_MediumContainer_LogoHolder {
+    width: 80px;
+    height: 83px;
+    padding: 20px;
+  }
+  .NavBar_Section_MediumContainer_HamburgerMenuButtonHolder {
+    top: 15px;
+  }
 }/*# sourceMappingURL=NavBar.css.map */

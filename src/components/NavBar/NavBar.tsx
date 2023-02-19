@@ -1,34 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NavBar.css";
+import classNames from "classnames";
 
-// images
+// images & icons
 import mercLogo from "../../images/mercLogo.jpg";
+import hamburger4 from "../../images/hamburger4.svg";
 
-// views
-import { navMenus } from "../../views/navMenus";
+type Props = {
+	navMenus: string[];
+	openMediumNavBar: boolean;
+	setOpenMediumNavBar: Function;
+	indexOfActive: number;
+	setIndexOfActive: Function;
+};
 
-type Props = {};
-
-const NavBar = (props: Props) => {
+const NavBar = ({
+	navMenus,
+	openMediumNavBar,
+	setOpenMediumNavBar,
+	indexOfActive,
+	setIndexOfActive,
+}: Props) => {
 	return (
-		<nav className="drr">
-			<section className="dbb">
-				<div className="LogoSection dyy">
-					<div className="LogoBox drr">
-						<div>
-							<img src={mercLogo} alt="mercedes main logo" />
+		<nav className="NavBar ">
+			<section className="NavBar_Section ">
+				{/* LARGE NAVBAR */}
+				<div className="NavBar_Section_LargeNavBarContainer">
+					<div className="NavBar_Section_LogoSection  ">
+						<div className="NavBar_Section_LogoSection_LogoBox Global_cursorPointer ">
+							<div>
+								<img src={mercLogo} alt="mercedes main logo" />
+							</div>
+							<div>Mercedes-Benz</div>
 						</div>
-						<div>Mercedes-Benz</div>
+					</div>
+					<div className="NavBar_Section_HrLine"></div>
+					<div className="NavBar_Section_LogoSection_NavMenuItemContainer ">
+						{navMenus?.map((el, idx) => {
+							return (
+								<button
+									key={el}
+									className={classNames(
+										"NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem",
+										{
+											NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem_Active:
+												idx === 4,
+										}
+									)}
+									autoFocus={idx === 0}
+									onClick={() => setIndexOfActive(idx)}
+									id={el}
+								>
+									<div
+										className={classNames(
+											"NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem_TopBorder",
+											{
+												NavBar_Section_LogoSection_NavMenuItemContainer_NavMenuItem_TopBorder_100pc:
+													idx === indexOfActive,
+											}
+										)}
+									></div>
+									{el}
+								</button>
+							);
+						})}
 					</div>
 				</div>
-				<div>
-					{navMenus?.map((el) => {
-						return (
-							<div key={el} className="NavMenuItem">
-								{el}
-							</div>
-						);
-					})}
+				{/* MEDIUM NAVBAR */}
+				<div className="NavBar_Section_MediumContainer ">
+					<button
+						className={classNames(
+							"NavBar_Section_MediumContainer_HamburgerMenuButtonHolder ",
+							{
+								"NavBar_Section_MediumContainer_HamburgerMenuButtonHolder--GrayBackground":
+									openMediumNavBar,
+							}
+						)}
+						onClick={() => setOpenMediumNavBar(!openMediumNavBar)}
+					>
+						<img src={hamburger4} alt="hamburger menu" />
+					</button>
+					<div className="NavBar_Section_MediumContainer_LogoHolder ">
+						<img src={mercLogo} alt="mercedes main logo" width="100%" />
+					</div>
 				</div>
 			</section>
 		</nav>
