@@ -14,8 +14,10 @@ import { navMenus } from "./views/navMenus";
 import closeSign from "./images/closeSign.svg";
 import closeSignWhite from "./images/closeSignWhite.svg";
 import ioLogoBlueSmall from "./images/ioLogoBlueSmall.svg";
-import oLeft from "./images/o-left-MQ1.svg";
-import oRight from "./images/o-right-MQ1.svg";
+import oLeftSmall from "./images/o-left-MQ1.svg";
+import oRightSmall from "./images/o-right-MQ1.svg";
+import cElementLeft from "./images/cElementLeft.png";
+import cElementRight from "./images/cElementRight.png";
 
 // images
 import welcomeImg from "./images/welcomeImg.jpg";
@@ -250,19 +252,25 @@ function App() {
 						city2="LISBON"
 						picture1={welcomeImg}
 						picture2={planingImg}
-						miniLogo={oLeft}
+						miniLogo={cElementLeft}
+						miniLogoSmall={oLeftSmall}
 						miniLogoPosition="left"
+						scrollControlY={scrollControlY}
+						windowWidth={windowWidth}
 					/>
-					{/* <TwoPics
+					<TwoPics
 						heading1="PROBLEMSOLVING"
 						heading2="VOLUNTEERING"
 						city1="STUTTGART"
 						city2="STUTTGART"
 						picture1={office1Img}
 						picture2={outDoorImg1}
-						miniLogo={oRight}
+						miniLogo={cElementRight}
+						miniLogoSmall={oRightSmall}
 						miniLogoPosition="right"
-					/> */}
+						scrollControlY={scrollControlY}
+						windowWidth={windowWidth}
+					/>
 				</div>
 				{/* end of meet our tribe container */}
 			</div>
