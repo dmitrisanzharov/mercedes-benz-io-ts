@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./TwoPics.css";
 import classNames from "classnames";
 
@@ -13,7 +13,7 @@ type Props = {
 	miniLogoSmall: string;
 	miniLogoPosition: string;
 	scrollControlY: number;
-	windowWidth: number;
+	clientInnerHeight: number;
 };
 
 const TwoPics = ({
@@ -27,41 +27,44 @@ const TwoPics = ({
 	miniLogoSmall,
 	miniLogoPosition,
 	scrollControlY,
-	windowWidth,
+	clientInnerHeight,
 }: Props) => {
 	const [zoomPic1, setZoomPic1] = useState(false);
 	const [zoomPic2, setZoomPic2] = useState(false);
-	const [zoomPic3, setZoomPic3] = useState(false);
-	const [zoomPic4, setZoomPic4] = useState(false);
 
+	const pic1Ref = useRef<HTMLInputElement>(null);
 	const pic2Ref = useRef<HTMLInputElement>(null);
 
+	// functions
+
 	useEffect(() => {
-		// console.log(scrollControlY);
-		if (scrollControlY >= 1479) {
+		const pic1InViewCheck = pic1Ref?.current?.getBoundingClientRect()?.y;
+		const pic2InViewCheck = pic2Ref?.current?.getBoundingClientRect()?.y;
+
+		if (checkIfInView(pic1InViewCheck)) {
 			setZoomPic1(true);
 		}
 
-		if (scrollControlY >= 2113) {
+		if (checkIfInView(pic2InViewCheck)) {
 			setZoomPic2(true);
 		}
-	}, [scrollControlY]);
 
-	useEffect(() => {
-		console.log(windowWidth);
-
-		let elementX = pic2Ref?.current?.getBoundingClientRect();
-		console.log("elementX: ", elementX?.height);
-		console.log("elementX: ", elementX?.width);
-	}, [windowWidth]);
+		function checkIfInView(pic: number | undefined) {
+			if (!pic) {
+				return;
+			}
+			return pic - clientInnerHeight * 0.55 <= 0 ? true : false;
+			// const pixelsFromTop;
+		}
+	}, [scrollControlY, clientInnerHeight]);
 
 	return (
-		<div className="TwoPicsContainer drr">
+		<div className="TwoPicsContainer ">
 			{/* image1 */}
-			<div className="TwoPicsContainer_Img1Container_Wrapper dbb">
+			<div className="TwoPicsContainer_Img1Container_Wrapper">
 				{/* C-Element Right */}
 				{miniLogoPosition === "right" && (
-					<div className="TwoPicsContainer_Img2ContainerWrapper_cElementLeftContainer--Right drr">
+					<div className="TwoPicsContainer_Img2ContainerWrapper_cElementLeftContainer--Right">
 						<img
 							src={miniLogo}
 							alt="c element left"
@@ -71,13 +74,13 @@ const TwoPics = ({
 						<img
 							src={miniLogoSmall}
 							alt="c element left small"
-							width="100%"
-							className="TwoPicsContainer_Img2ContainerWrapper_cElementLeftContainer_MiniLogoSmall"
+							className="TwoPicsContainer_Img2ContainerWrapper_cElementLeftContainer_MiniLogoSmall TwoPicsContainer_Img2ContainerWrapper_cElementLeftContainer_MiniLogoSmall--Right "
 						/>
 					</div>
 				)}
 				<div
 					className="TwoPicsContainer_Img1Container"
+					ref={pic1Ref}
 					// style={{ display: "none" }}
 				>
 					<img

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="28px" viewBox="0 0 40 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>BER_icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="01-Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Zeplin" transform="translate(-729.000000, -2113.000000)" stroke="#FFFFFF" stroke-width="1.05">
+            <g id="Locations" transform="translate(0.000000, 1544.000000)">
+                <g id="Stuttgart" transform="translate(104.000000, 448.000000)">
+                    <g id="Text" transform="translate(547.000000, 49.000000)">
+                        <g id="STR_icon-Copy" transform="translate(4.000000, 64.000000)">
+                            <g id="BER_icon" transform="translate(69.300000, 0.000000)">
+                                <g transform="translate(5.320000, 9.240000)">
+                                    <polyline id="Stroke-3" stroke-linecap="round" points="3.64 26.04 3.64 14.56 35.28 14.56 35.28 26.04"></polyline>
+                                    <line x1="8.96" y1="14.56" x2="8.96" y2="26.04" id="Stroke-5" stroke-linecap="round"></line>
+                                    <line x1="14.56" y1="14.56" x2="14.56" y2="26.04" id="Stroke-7" stroke-linecap="round"></line>
+                                    <line x1="19.88" y1="14.56" x2="19.88" y2="26.04" id="Stroke-9" stroke-linecap="round"></line>
+                                    <line x1="24.64" y1="14.56" x2="24.64" y2="26.04" id="Stroke-11" stroke-linecap="round"></line>
+                                    <line x1="30.24" y1="14.56" x2="30.24" y2="26.04" id="Stroke-13" stroke-linecap="round"></line>
+                                    <path d="M15.1174471,8.39937862 L15.1174471,4.86787819 C15.1174471,4.80832943 15.1661305,4.76 15.2261155,4.76 L23.566635,4.76 C23.62662,4.76 23.6753035,4.80832943 23.6753035,4.86787819 L23.6753035,8.39937862 C23.6753035,8.51847614 23.7726704,8.615135 23.8926403,8.615135 L38.4224791,8.615135 C38.5750496,8.615135 38.679806,8.76702749 38.6254718,8.90813217 C38.6254718,8.90813217 35.852688,11.76 35.7627106,11.76 L2.91615543,11.744034 C2.81661514,11.744034 0.00688414457,8.88439896 0.00688414457,8.88439896 C-0.0283244276,8.74847244 0.0759972678,8.615135 0.217700904,8.615135 L14.9001102,8.615135 C15.0200801,8.615135 15.1174471,8.51847614 15.1174471,8.39937862 Z" id="Stroke-15"></path>
+                                    <line x1="19.32" y1="0" x2="19.32" y2="4.48" id="Stroke-17" stroke-linecap="round" stroke-linejoin="round"></line>
+                                    <line x1="16.52" y1="1.4" x2="17.64" y2="2.8" id="Stroke-19" stroke-linecap="round" stroke-linejoin="round"></line>
+                                    <line x1="21.84" y1="1.4" x2="20.72" y2="2.8" id="Stroke-21" stroke-linecap="round" stroke-linejoin="round"></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

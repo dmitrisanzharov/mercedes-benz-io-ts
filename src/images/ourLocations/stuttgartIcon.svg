@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="45px" viewBox="0 0 42 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>stuttgart-icon-new</title>
+    <desc>Created with Sketch.</desc>
+    <g id="01-Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Home-Zeplin" transform="translate(-668.000000, -2212.000000)" stroke="#FFFFFF" stroke-width="1.5">
+            <g id="Locations" transform="translate(0.000000, 1544.000000)">
+                <g id="Stuttgart" transform="translate(104.000000, 528.000000)">
+                    <g id="Text" transform="translate(550.000000, 127.000000)">
+                        <g id="STR_icon-Copy" transform="translate(1.000000, 0.000000)">
+                            <g id="stuttgart-icon-new" transform="translate(14.256000, 13.840000)">
+                                <path d="M39.6,38.0413775 L37.0083655,42.1732371 C37.0083655,42.1732371 26.4768458,44.7676357 0,39.4663414 C0,39.4663414 36.3134753,31.9959948 39.6,38.0413775 Z" id="Stroke-3"></path>
+                                <path d="M0.0261418492,32.096 L0,25.4762259 C0,25.4762259 33.8368115,6.83699108 39.6,19.4451047 L39.6,28.9702362 C39.6,28.9702362 33.9332096,20.8704357 0.0261418492,32.096 Z" id="Stroke-5"></path>
+                                <path d="M0,16.632 L0,13.1663352 C0,13.1663352 34.5899073,-9.45100322 39.6,4.60136246 L39.6,9.215564 C39.6,9.215564 34.4407681,-1.47249428 0,16.632 Z" id="Stroke-7"></path>
+                                <path d="M32.472,10.504 C34.4374196,10.7303389 36.154812,11.2809934 37.62,12.484" id="Stroke-9"></path>
+                                <path d="M8.316,17.236 C13.8305393,14.5852292 22.6874553,10.8730233 29.7,10.504" id="Stroke-11"></path>
+                                <path d="M1.188,20.8 C1.188,20.8 4.25763442,19.0935168 6.336,18.028" id="Stroke-13"></path>
+                                <path d="M35.64,32.304 C36.2497846,32.5254497 37.1104615,32.7885093 37.62,33.096" id="Stroke-15"></path>
+                                <path d="M19.008,32.304 C23.9877501,31.5780042 29.2350479,31.1971539 33.264,31.8398388" id="Stroke-17"></path>
+                                <path d="M14.652,32.956608 C15.2983697,32.779992 15.9600119,32.608128 16.632,32.443392" id="Stroke-19"></path>
+                                <path d="M1.188,35.868 C1.188,35.868 6.97119926,34.2233212 12.276,33.096" id="Stroke-21"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

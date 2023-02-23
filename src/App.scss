@@ -26,6 +26,11 @@
 	border: 2px solid pink;
 }
 
+// border done
+.bdn {
+	border: 1px solid lightgray;
+}
+
 // backgrounds
 
 .bgr {
@@ -79,6 +84,26 @@
 	}
 }
 
+.animationDelayNone {
+	animation-delay: 0s;
+}
+
+.animationDelay0125 {
+	animation-delay: 0.125s;
+}
+
+.animationDelay_025 {
+	animation-delay: 0.25s;
+}
+
+.animationDelay_0375 {
+	animation-delay: 0.375s;
+}
+
+.animationDelay_050 {
+	animation-delay: 0.5s;
+}
+
 .animationDelay_075 {
 	animation-delay: 0.75s;
 }
@@ -87,9 +112,29 @@
 	animation-delay: 1s;
 }
 
+.animationTimingFunctionEaseOut {
+	animation-timing-function: ease-out;
+}
+
 //********************************************************************
 //        GENERIC CLASSES
 // *******************************************************************
+
+::-webkit-scrollbar {
+	height: 12px;
+	width: 12px;
+	background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #393812;
+	-webkit-border-radius: 1ex;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+	background: #000;
+}
 
 .Global_cursorPointer {
 	cursor: pointer;
@@ -105,6 +150,12 @@
 
 .Global_Opacity1 {
 	opacity: 1;
+}
+
+.MercMainContainer_white25PxSeparator {
+	background-color: white;
+	height: 25px;
+	width: 100%;
 }
 
 //********************************************************************
@@ -553,6 +604,7 @@
 .MercMainContainer_MeetOurTribeContainer {
 	background-color: white;
 	padding-inline: 80px;
+	padding-bottom: 110px;
 }
 
 .MercMainContainer_MeetOurTribeContainer_HeadingContainer {
@@ -564,7 +616,7 @@
 	font-size: 80px;
 	line-height: 88px;
 	font-weight: 800;
-	margin: 180px 0px 95px;
+	padding: 180px 0px 95px;
 }
 
 @media all and (max-width: 1023px) {
@@ -576,7 +628,7 @@
 	}
 
 	.MercMainContainer_MeetOurTribeContainer_HeadingContainer_Heading {
-		margin: 108px 0px 60px;
+		padding: 108px 0px 60px;
 		font-size: 32px;
 		line-height: 42px;
 		font-weight: 800;

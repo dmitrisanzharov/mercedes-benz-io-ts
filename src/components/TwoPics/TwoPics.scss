@@ -215,14 +215,13 @@
 	width: 280px;
 	position: absolute;
 	z-index: 5;
-	top: 250px;
-	right: -209px;
+	bottom: -200px;
+	right: -206px;
 }
 
 @media all and (max-width: 1269px) {
 	.TwoPicsContainer_Img2ContainerWrapper_cElementLeftContainer--Right {
-		top: 55%;
-		right: -208px;
+		right: -206px;
 	}
 }
 
@@ -246,8 +245,9 @@
 	}
 
 	.TwoPicsContainer_Img2ContainerWrapper_cElementLeftContainer--Right {
-		transform: scale(0.3);
-		left: 0;
-		bottom: 0;
+		height: fit-content;
+		width: fit-content;
+		right: -42px;
+		bottom: -25px;
 	}
 }

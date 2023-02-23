@@ -1,0 +1,31 @@
+@import "../../variables";
+
+// $singleItemWidth: calc(100vw - 12px);
+// $singleItemHeight: 80vh;
+
+$singleItemWidth: 200px;
+$singleItemHeight: 200px;
+
+.MercMainContainer_CarouselContainer {
+	height: 80vh;
+	width: 1400px;
+	overflow: hidden;
+}
+
+.MercMainContainer_CarouselContainer_Slider {
+	display: grid;
+	grid-template-columns: repeat(7, $singleItemWidth);
+	overflow: hidden;
+	transition: transform 0.5s;
+}
+
+.MercMainContainer_CarouselContainer_Slider--NoTransition {
+	transition: none;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItems {
+	background-position: center;
+	background-size: cover;
+	width: $singleItemWidth;
+	height: $singleItemHeight;
+}

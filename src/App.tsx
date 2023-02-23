@@ -6,6 +6,8 @@ import classNames from "classnames";
 import NavBar from "./components/NavBar/NavBar";
 import LoremComponent from "./components/LoremComponent";
 import TwoPics from "./components/TwoPics/TwoPics";
+import OurLocations from "./components/OurLocations/OurLocations";
+import Carousel from "./components/Carousel/Carousel";
 
 // views
 import { navMenus } from "./views/navMenus";
@@ -35,6 +37,7 @@ function App() {
 	const [openMediumNavBar, setOpenMediumNavBar] = useState(false);
 	const [indexOfActive, setIndexOfActive] = useState(7);
 	const [showMission, setShowMission] = useState(false);
+	const [clientInnerHeight, setClientInnerHeight] = useState(0);
 
 	function handleScroll() {
 		const scrollPosition = window.scrollY;
@@ -69,6 +72,7 @@ function App() {
 
 	useEffect(() => {
 		setIndexOfActive(0);
+		setClientInnerHeight(window.innerHeight);
 	}, []);
 
 	return (
@@ -238,9 +242,9 @@ function App() {
 			{/* ****************************************************************** */}
 			{/* *****   MEET OUR TRIBE SECTION     ****** */}
 			{/* ***************************************************************** */}
-			<div className="MercMainContainer_MeetOurTribeContainer drr">
-				<div className="MercMainContainer_MeetOurTribeContainer_HeadingContainer dbb">
-					<div className="MercMainContainer_MeetOurTribeContainer_HeadingContainer_Heading drr">
+			<div className="MercMainContainer_MeetOurTribeContainer ">
+				<div className="MercMainContainer_MeetOurTribeContainer_HeadingContainer ">
+					<div className="MercMainContainer_MeetOurTribeContainer_HeadingContainer_Heading ">
 						<em>MEET OUR TRIBE</em>
 					</div>
 				</div>
@@ -256,8 +260,9 @@ function App() {
 						miniLogoSmall={oLeftSmall}
 						miniLogoPosition="left"
 						scrollControlY={scrollControlY}
-						windowWidth={windowWidth}
+						clientInnerHeight={clientInnerHeight}
 					/>
+					<div className="MercMainContainer_white25PxSeparator"></div>
 					<TwoPics
 						heading1="PROBLEMSOLVING"
 						heading2="VOLUNTEERING"
@@ -269,13 +274,18 @@ function App() {
 						miniLogoSmall={oRightSmall}
 						miniLogoPosition="right"
 						scrollControlY={scrollControlY}
-						windowWidth={windowWidth}
+						clientInnerHeight={clientInnerHeight}
 					/>
 				</div>
 				{/* end of meet our tribe container */}
 			</div>
-			{/* end of the COMPONENT, main div */}
+
+			<OurLocations />
+
+			<Carousel />
+
 			<LoremComponent textSize={2000} backgroundColor="lightgray" />
+			{/* end of the COMPONENT, main div */}
 		</div>
 	);
 }

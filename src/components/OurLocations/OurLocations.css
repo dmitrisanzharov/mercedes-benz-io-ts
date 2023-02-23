@@ -1,0 +1,185 @@
+.MercMainContainer_OurLocationsContainer {
+  padding: 183px 0px;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer {
+  max-width: 1071px;
+  margin-inline: auto;
+}
+
+@media all and (max-width: 1120px) {
+  .MercMainContainer_OurLocationsContainer {
+    padding-inline: 30px;
+  }
+}
+@media all and (max-width: 1023px) {
+  .MercMainContainer_OurLocationsContainer {
+    padding: 112px 0px;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer {
+    max-width: 90%;
+  }
+}
+.MercMainContainer_OurLocationsContainer_InnerContainer_Heading {
+  font-size: 80px;
+  line-height: 88px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 94px;
+}
+
+@media all and (max-width: 1023px) {
+  .MercMainContainer_OurLocationsContainer_InnerContainer_Heading {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 800;
+    margin-bottom: 57px;
+  }
+}
+.MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox {
+  padding-bottom: 54px;
+  padding-inline: 84px;
+}
+
+@media all and (max-width: 1023px) {
+  .MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox {
+    padding-bottom: 38px;
+    padding-inline: 0px;
+  }
+}
+.MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox_SingleItemWrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox_SingleItem {
+  color: white;
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: 800;
+  margin: 15px 0px;
+  outline: none;
+  background-color: black;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox_SingleItem:hover {
+  color: #00a6e5;
+  cursor: pointer;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox_SingleItem--Active {
+  color: #00a6e5;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox_Separator {
+  border: 1px dashed #9f9f9f;
+  height: 100%;
+  transform: skew(-25deg);
+}
+
+@media all and (max-width: 1023px) {
+  .MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox_SingleItem {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 800;
+    margin: 0px 0px;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer_NavBarOuterBox_InnerBox_Separator {
+    display: none;
+  }
+}
+.MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection {
+  display: flex;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_VideoBox {
+  width: 56.5%;
+  overflow: hidden;
+  height: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 27px;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox {
+  width: calc(47.5% + 50px);
+  margin: 55px 0px 55px -50px;
+  padding: 56px 33px 168px;
+  background-color: white;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox_LogoHolder {
+  background-color: black;
+  width: 53px;
+  height: 53px;
+  padding: 12px;
+  border-radius: 25px;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox_Heading {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox_Body {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  margin-top: 27px;
+}
+
+.MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox_Address {
+  margin-top: 27px;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+@media all and (max-width: 1023px) {
+  .MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection {
+    flex-direction: column;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_VideoBox {
+    width: 110%;
+    display: block;
+    overflow: visible;
+    margin: 0px 0px 0px -5%;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_VideoBox img {
+    height: auto;
+    width: 100%;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox {
+    width: 100%;
+    margin: -71px 0px 0px;
+    padding: 40px 25px;
+    background-color: white;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox_Heading {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 800;
+    margin-top: 12px;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox_Body {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: 21px;
+  }
+  .MercMainContainer_OurLocationsContainer_InnerContainer_VideoAndTextSection_TextBox_Address {
+    margin-top: 21px;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+}/*# sourceMappingURL=OurLocations.css.map */
