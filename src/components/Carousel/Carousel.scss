@@ -1,31 +1,287 @@
 @import "../../variables";
 
-// $singleItemWidth: calc(100vw - 12px);
-// $singleItemHeight: 80vh;
+$singleItemWidth: calc(100vw);
+$singleItemHeight: 95vh;
+$singleItemHeight1023: 65vh;
 
-$singleItemWidth: 200px;
-$singleItemHeight: 200px;
+// $singleItemWidth: 200px;
+// $singleItemHeight: 200px;
 
 .MercMainContainer_CarouselContainer {
-	height: 80vh;
-	width: 1400px;
+	// height: 80vh;
+	// width: 1400px;
 	overflow: hidden;
+	position: relative;
+	cursor: grab;
+	user-select: none;
 }
+
+//********************************************************************
+//        BUTTONS
+// *******************************************************************
+
+.MercMainContainer_CarouselContainer_LeftButton {
+	position: absolute;
+	background: transparent;
+	top: 50%;
+	left: 10%;
+	z-index: 2;
+	width: 34px;
+	height: 18px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.MercMainContainer_CarouselContainer_RightButton {
+	position: absolute;
+	background: transparent;
+	top: 50%;
+	right: 10%;
+	z-index: 2;
+	width: 34px;
+	height: 18px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+@media all and (max-width: 1023px) {
+	.MercMainContainer_CarouselContainer_LeftButton,
+	.MercMainContainer_CarouselContainer_RightButton {
+		display: none;
+	}
+}
+
+//********************************************************************
+//         Little Slide Tracker Controller
+// *******************************************************************
+.MercMainContainer_CarouselContainer_SlideTrackerContainer {
+	position: absolute;
+	width: 100px;
+	height: 12px;
+	left: 50%;
+	bottom: 15%;
+	margin-left: -42px;
+	display: flex;
+	justify-content: space-evenly;
+	z-index: 4;
+}
+
+.MercMainContainer_CarouselContainer_SlideTrackerContainer_SingleCircle {
+	height: 8px;
+	width: 8px;
+	border-radius: 50%;
+	background-color: $merc-gray2;
+	border: 2px solid transparent;
+}
+
+.MercMainContainer_CarouselContainer_SlideTrackerContainer_SingleCircle--Active {
+	border-color: white !important;
+	background-color: white;
+}
+
+@media all and (max-width: 1123px) {
+	.MercMainContainer_CarouselContainer_SlideTrackerContainer {
+		bottom: 10%;
+	}
+}
+
+@media all and (max-width: 700px) {
+	.MercMainContainer_CarouselContainer_SlideTrackerContainer {
+		bottom: 5%;
+	}
+}
+
+@media all and (max-width: 521px) {
+	.MercMainContainer_CarouselContainer_SlideTrackerContainer {
+		bottom: 2.5%;
+	}
+}
+
+@media all and (max-width: 318px) {
+	.MercMainContainer_CarouselContainer_SlideTrackerContainer {
+		bottom: 5px;
+	}
+}
+
+//********************************************************************
+//         SLIDE STUFF
+// *******************************************************************
 
 .MercMainContainer_CarouselContainer_Slider {
 	display: grid;
 	grid-template-columns: repeat(7, $singleItemWidth);
-	overflow: hidden;
-	transition: transform 0.5s;
+	// overflow: hidden;
+	transition: transform 0.75s ease-out;
 }
 
 .MercMainContainer_CarouselContainer_Slider--NoTransition {
 	transition: none;
 }
 
-.MercMainContainer_CarouselContainer_Slider_SingleItems {
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer {
+	position: relative;
+	width: $singleItemWidth;
+	height: $singleItemHeight;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	text-align: center;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
 	background-position: center;
 	background-size: cover;
 	width: $singleItemWidth;
 	height: $singleItemHeight;
+	opacity: 0.3;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+@media all and (max-width: 1023px) {
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer,
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+		height: $singleItemHeight1023;
+		padding-top: 30px;
+		padding-bottom: 40px;
+	}
+}
+
+@media all and (max-width: 600px) {
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer,
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+		height: fit-content;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+
+// @media all and (max-width: 350px) {
+// 	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer,
+// 	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+// 		height: fit-content;
+// 	}
+// }
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox {
+	width: 1070px;
+	margin-inline: auto;
+}
+
+@media all and (max-width: 1123px) {
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox {
+		width: 90%;
+		margin-inline: auto;
+	}
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Heading {
+	width: 65%;
+	margin-inline: auto;
+	font-size: 40px;
+	line-height: 50px;
+	font-weight: 800;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_AuthorAndDate {
+	margin-inline: auto;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 300;
+	width: fit-content;
+	margin-bottom: 35px;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Text {
+	margin-inline: auto;
+	font-size: 20px;
+	line-height: 32px;
+	font-weight: 600;
+	width: 65%;
+	margin-bottom: 10px;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore {
+	width: fit-content;
+	margin-inline: auto;
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 800;
+	position: relative;
+	padding-bottom: 6px;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore:hover {
+	cursor: pointer;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore_BorderBottom {
+	width: 34%;
+	margin-top: 4px;
+	border-bottom: 2px solid $merc-blue;
+	position: absolute;
+	transition: width 1s;
+}
+
+.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore:hover
+	> .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore_BorderBottom {
+	width: 100%;
+}
+
+@media all and (max-width: 1023px) {
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Heading {
+		width: 100%;
+		font-size: 20px;
+		line-height: 30px;
+		font-weight: 800;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_AuthorAndDate {
+		margin-inline: auto;
+		font-size: 12px;
+		line-height: 23px;
+		font-weight: 300;
+		width: 100%;
+		margin-bottom: 27px;
+	}
+
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Text {
+		margin-inline: auto;
+		font-size: 18px;
+		line-height: 28px;
+		font-weight: 400;
+		width: 100%;
+		margin-bottom: 10px;
+		padding-inline: 10px;
+	}
+
+	.MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore {
+		width: fit-content;
+		margin-inline: auto;
+		font-size: 16px;
+		line-height: 26px;
+		font-weight: 800;
+		position: relative;
+		padding-bottom: 6px;
+	}
+}
+
+//********************************************************************
+//          HAND MOVING STUFF
+// *******************************************************************
+.MercMainContainer_CarouselContainer_Slider--Active {
+	cursor: grabbing;
 }

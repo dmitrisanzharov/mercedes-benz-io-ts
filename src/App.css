@@ -22,7 +22,7 @@
   border: 2px solid pink;
 }
 
-.bdn {
+.bdd {
   border: 1px solid lightgray;
 }
 
@@ -91,12 +91,20 @@
   animation-delay: 0.375s;
 }
 
+.animationDelay_0425 {
+  animation-delay: 0.425s;
+}
+
 .animationDelay_050 {
   animation-delay: 0.5s;
 }
 
 .animationDelay_075 {
   animation-delay: 0.75s;
+}
+
+.animationDelay_090 {
+  animation-delay: 0.9s;
 }
 
 .animationDelay_1 {
@@ -114,7 +122,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #393812;
+  background: #00a6e5;
   -webkit-border-radius: 1ex;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
 }

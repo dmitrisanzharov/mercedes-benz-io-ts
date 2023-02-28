@@ -282,7 +282,7 @@ function App() {
 
 			<OurLocations />
 
-			<Carousel />
+			<Carousel windowWidth={windowWidth} />
 
 			<LoremComponent textSize={2000} backgroundColor="lightgray" />
 			{/* end of the COMPONENT, main div */}

@@ -51,7 +51,7 @@ const carouselView: CarouselView[] = [
 		backgroundImg: img4,
 		heading: "Improving Your Development Documentation Project",
 		authorAndDate: "Javier Hernandez · January 18, 2023",
-		text: "PART 1 What this article coversFirst steps on how to improve an existing documentation project. ToolsConfluence, GitHub web and desktop versions, and MarkdownPad2. Introduction Developer Documentation is a curated set of files&nbsp;describing all the active&nbsp;workflows,&nbsp;setups,&nbsp;tools,&nbsp;conventions,&nbsp;best practices, and&nbsp;How-tos&nbsp;of your software development product. Through this article, I will refer to it as “documentation” or “docs”. Documentation supports […]",
+		text: "PART 1 What this article coversFirst steps on how to improve an existing documentation project. ToolsConfluence, GitHub web and desktop versions, and MarkdownPad2. Introduction Developer Documentation is a curated set of files describing all the active workflows, setups, tools, conventions, best practices, and How-tos of your software development product. Through this article, I will refer to it as “documentation” or “docs”. Documentation supports […]",
 	},
 	{
 		id: "63f6f2c658a23ab13b0437b5",
