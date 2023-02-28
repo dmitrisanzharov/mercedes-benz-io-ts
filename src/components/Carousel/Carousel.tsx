@@ -19,136 +19,177 @@ const Carousel = ({ windowWidth }: Props) => {
 		[]
 	);
 
-	const transitionSpeedForCarousel = 1001;
+	const transitionSpeedForCarousel = 1001; //! not need
 
-	const [count, setCount] = useState(-1);
-	const [clickDirection, setClickDirection] = useState("");
-	const [btnDisabled, setBtnDisabled] = useState(false);
-	const [activeSlideIdx, setActiveSlideIdx] = useState(0);
-	const [animate, setAnimate] = useState(false);
+	const singleItemWidth = windowWidth; //! not needed, cause single item width IS widnowWidth
 
-	// moving slider by HAND
-	const itemsContainer: any = useRef();
+	const [translateAmount, setTranslateAmount] = useState(windowWidth);
 	const [isDown, setIsDown] = useState(false);
 	const [startX, setStartX] = useState(0);
 	const [mouseMoved, setMouseMoved] = useState(0);
+	const [currentTranslate, setCurrentTranslate] = useState(0);
+	const [count, setCount] = useState(0);
+	const [stopAnime, setStopAnime] = useState(false);
+	const [btnDisable, setBtnDisable] = useState(false);
+	const [clickDirection, setClickDirection] = useState("");
+	// experiemantal states
+
+	// old states and value
+
+	const [activeSlideIdx, setActiveSlideIdx] = useState(0);
+	const [animate, setAnimate] = useState(false);
 	const [translateXValue, setTranslateXValue] = useState(0);
+	const itemsContainer: any = useRef();
+	// moving slider by HAND
 
 	// FUNCTIONS
 
 	function handleMouseDown(e: any) {
-		console.log("mouseDownTriggered");
 		setIsDown(true);
-		setStartX(e.pageX - itemsContainer?.current?.offsetLeft);
+		setStartX(e.clientX);
+		setCurrentTranslate(translateAmount);
 		setMouseMoved(0);
-		setTranslateXValue(count * windowWidth);
+		setStopAnime(false);
+	}
+
+	function handleMouseUp(e: any) {
+		setIsDown(false);
+		setCurrentTranslate(translateAmount);
+		// handleTranstionAfterMouseMove();
+	}
+
+	function handleMouseLeave(e: any) {
+		setIsDown(false);
 	}
 
 	function handleMouseMove(e: any) {
-		if (!isDown) {
+		if (isDown === false) {
 			return;
 		}
 
-		const currentMousePositionInsideContainer =
-			e.pageX === undefined
-				? e.touches[0].pageX - itemsContainer.current.offsetLeft
-				: e.pageX - itemsContainer.current.offsetLeft;
+		const mouseMovedVar = e.clientX - startX;
+		setMouseMoved(mouseMovedVar);
+	}
 
-		setMouseMoved(currentMousePositionInsideContainer - startX);
+	function handleTranstionAfterMouseMove() {
+		// console.log("is down", isDown);
+
+		// tests
+		const movedRight = mouseMoved > 0;
+
+		const movedLeft = mouseMoved < 0;
+
+		const movedRightAndBiggerThanHalf = mouseMoved >= singleItemWidth / 2;
+
+		const movedLeftAndBiggerThanHalf = mouseMoved < singleItemWidth / -2;
+
+		if (movedRight) {
+			setClickDirection("left");
+		}
+
+		if (movedLeft) {
+			setClickDirection("right");
+		}
+
+		if (movedRight && movedRightAndBiggerThanHalf) {
+			// console.log("a");
+			setCount(count - 1);
+			return;
+		}
+
+		if (movedRight && !movedRightAndBiggerThanHalf) {
+			// console.log("b");
+			setTranslateAmount(count * singleItemWidth);
+			return;
+		}
+
+		if (movedLeft && movedLeftAndBiggerThanHalf) {
+			// console.log("c");
+			setCount(count + 1);
+			return;
+		}
+
+		if (movedLeft && !movedLeftAndBiggerThanHalf) {
+			// console.log("d");
+			setTranslateAmount(count * singleItemWidth);
+			return;
+		}
+
+		setTranslateAmount(count * singleItemWidth);
+	}
+
+	function handleTransitionEnd() {
+		setStopAnime(true);
+		setBtnDisable(false);
+
+		if (count === 0) {
+			setCount(5);
+
+			return;
+		}
+
+		if (count === 6) {
+			setCount(1);
+
+			return;
+		}
 	}
 
 	// USE EFFECTS
 
 	useEffect(() => {
-		itemsContainer.current.style.transform = `translateX(${
-			translateXValue - mouseMoved
-		})`;
+		setTranslateAmount(currentTranslate - mouseMoved);
 	}, [mouseMoved]);
 
 	useEffect(() => {
-		// console.log("length", carouselView.length);
-		// console.log("count", count);
-		// console.log("windowSize", windowWidth);
-
-		setActiveSlideIdx(count * -1);
-
-		// count manager
-
-		if (count === -6) {
-			const timeOut = setTimeout(() => {
-				setCount(-1);
-				setBtnDisabled(false);
-				setAnimate(false);
-			}, transitionSpeedForCarousel);
-			return () => clearTimeout(timeOut);
-		}
-
-		if (count === 0) {
-			const timeOut = setTimeout(() => {
-				setCount(-5);
-				setBtnDisabled(false);
-				setAnimate(false);
-			}, transitionSpeedForCarousel);
-			return () => clearTimeout(timeOut);
-		}
-
-		const timeOut = setTimeout(() => {
-			setBtnDisabled(false);
-			setAnimate(false);
-		}, transitionSpeedForCarousel);
-		return () => clearTimeout(timeOut);
+		// console.log("count effect", count);
+		setTranslateAmount(count * singleItemWidth);
 	}, [count]);
 
 	useEffect(() => {
-		// console.log("activeSlideIdx", activeSlideIdx);
-		if (activeSlideIdx === 5) {
-			setActiveSlideIdx(0);
-			return;
-		}
-
-		if (activeSlideIdx === 6) {
-			setActiveSlideIdx(1);
-		}
-	}, [activeSlideIdx]);
-
-	useEffect(() => {
-		console.log("isDown state", isDown);
-		console.log("startX: ", startX);
-		console.log("walk", mouseMoved);
-		console.log("translate", translateXValue);
-	}, [isDown, startX, mouseMoved, translateXValue]);
+		handleTranstionAfterMouseMove();
+	}, [isDown]);
 
 	return (
 		<>
-			<hr />
-			<div className="MercMainContainer_CarouselContainer bdd">
+			{/* this is items holder */}
+			<div
+				className={classNames("MercMainContainer_CarouselContainer", {
+					"MercMainContainer_CarouselContainer--NoPointerEvents": btnDisable,
+				})}
+				onMouseDown={(e) => handleMouseDown(e)}
+				onMouseUp={handleMouseUp}
+				onMouseLeave={handleMouseLeave}
+				onMouseMove={(e) => handleMouseMove(e)}
+			>
 				{/* BUTTONS */}
 				<button
-					onClick={() => {
-						setCount(count + 1);
-						setClickDirection("right");
-						setBtnDisabled(true);
-						setAnimate(true);
+					className="MercMainContainer_CarouselContainer_LeftButton"
+					onClick={(e) => {
+						setCount(count - 1);
+						setStopAnime(false);
+						setBtnDisable(true);
+						setClickDirection("left");
 					}}
-					disabled={btnDisabled}
-					className="MercMainContainer_CarouselContainer_LeftButton bdd"
+					disabled={btnDisable}
 				>
 					<img src={leftArrow} alt="left arrow" width="100%" />
 				</button>
 				<button
-					onClick={() => {
-						setCount(count - 1);
-						setClickDirection("left");
-						setBtnDisabled(true);
-						setAnimate(true);
+					className="MercMainContainer_CarouselContainer_RightButton"
+					onClick={(e) => {
+						setCount(count + 1);
+						setStopAnime(false);
+						setBtnDisable(true);
+						setClickDirection("right");
 					}}
-					disabled={btnDisabled}
-					className="MercMainContainer_CarouselContainer_RightButton bdd"
+					disabled={btnDisable}
 				>
 					<img src={rightArrow} alt="right arrow" width="100%" />
 				</button>
+
 				{/* Little Slide Tracker Controller */}
-				<div className="MercMainContainer_CarouselContainer_SlideTrackerContainer bdd">
+				<div className="MercMainContainer_CarouselContainer_SlideTrackerContainer">
 					{arrayController.map((el, i) => {
 						return (
 							<div
@@ -157,31 +198,24 @@ const Carousel = ({ windowWidth }: Props) => {
 									"MercMainContainer_CarouselContainer_SlideTrackerContainer_SingleCircle",
 									{
 										"MercMainContainer_CarouselContainer_SlideTrackerContainer_SingleCircle--Active":
-											i === activeSlideIdx,
+											i === count ||
+											(i === 0 && count === 5) ||
+											(i === 0 && count === 0) ||
+											(i === 1 && count === 6),
 									}
 								)}
 							></div>
 						);
 					})}
 				</div>
-				{/* SLIDER STUFF and ITEMS */}
+				{/* SLIDER STUFF-  this is STING */}
 				<div
-					className={classNames(
-						"MercMainContainer_CarouselContainer_Slider bdd",
-						{
-							"MercMainContainer_CarouselContainer_Slider--NoTransition":
-								(count === -1 && clickDirection === "left") ||
-								(count === -5 && clickDirection === "right"),
-							"MercMainContainer_CarouselContainer_Slider--Active": isDown,
-						}
-					)}
-					style={{ transform: `translateX(${count * windowWidth}px)` }}
-					// MOUSE EVENTS FOR HAND MOVING
-					ref={itemsContainer}
-					onMouseDown={(e) => handleMouseDown(e)}
-					onMouseUp={() => setIsDown(false)}
-					onMouseLeave={() => setIsDown(false)}
-					onMouseMove={(e) => handleMouseMove(e)}
+					className={classNames("MercMainContainer_CarouselContainer_Slider", {
+						"MercMainContainer_CarouselContainer_Slider--NoTransition":
+							isDown || stopAnime,
+					})}
+					style={{ transform: `translateX(${translateAmount * -1}px)` }}
+					onTransitionEnd={handleTransitionEnd}
 				>
 					{carouselView?.map((el, i) => {
 						const { id, backgroundImg, heading, authorAndDate, text } = el;
@@ -192,39 +226,63 @@ const Carousel = ({ windowWidth }: Props) => {
 							>
 								{/* background */}
 								<div
-									className="MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv bdd"
+									className="MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv"
 									style={{ backgroundImage: `url(${backgroundImg})` }}
 								></div>
 								{/* Text Box */}
-								<div className="MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox bdd">
+								<div className="MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox">
 									<div
 										className={classNames(
-											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Heading bdd",
-											{ "addFadeInUpAnimation animationDelay_0425": animate }
+											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Heading",
+											{
+												"addFadeInUpAnimation animationDelay_0425":
+													(i === count &&
+														clickDirection === "right" &&
+														i !== 1) ||
+													(i === count && clickDirection === "left" && i !== 5),
+											}
 										)}
 									>
 										<em> {heading}</em>
 									</div>
 									<div
 										className={classNames(
-											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_AuthorAndDate bdd",
-											{ "addFadeInUpAnimation animationDelay_050": animate }
+											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_AuthorAndDate",
+											{
+												"addFadeInUpAnimation animationDelay_050":
+													(i === count &&
+														clickDirection === "right" &&
+														i !== 1) ||
+													(i === count && clickDirection === "left" && i !== 5),
+											}
 										)}
 									>
 										{authorAndDate}
 									</div>
 									<div
 										className={classNames(
-											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Text bdd",
-											{ "addFadeInUpAnimation animationDelay_075": animate }
+											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_Text",
+											{
+												"addFadeInUpAnimation animationDelay_075":
+													(i === count &&
+														clickDirection === "right" &&
+														i !== 1) ||
+													(i === count && clickDirection === "left" && i !== 5),
+											}
 										)}
 									>
 										{text}
 									</div>
 									<div
 										className={classNames(
-											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore bdd",
-											{ "addFadeInUpAnimation animationDelay_090": animate }
+											"MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox_ReadMore",
+											{
+												"addFadeInUpAnimation animationDelay_090":
+													(i === count &&
+														clickDirection === "right" &&
+														i !== 1) ||
+													(i === count && clickDirection === "left" && i !== 5),
+											}
 										)}
 									>
 										Read more

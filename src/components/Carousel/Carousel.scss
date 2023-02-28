@@ -16,6 +16,10 @@ $singleItemHeight1023: 65vh;
 	user-select: none;
 }
 
+.MercMainContainer_CarouselContainer--NoPointerEvents {
+	pointer-events: none;
+}
+
 //********************************************************************
 //        BUTTONS
 // *******************************************************************
@@ -33,6 +37,7 @@ $singleItemHeight1023: 65vh;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border: none;
 }
 
 .MercMainContainer_CarouselContainer_RightButton {
@@ -48,6 +53,7 @@ $singleItemHeight1023: 65vh;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border: none;
 }
 
 @media all and (max-width: 1023px) {
@@ -117,7 +123,7 @@ $singleItemHeight1023: 65vh;
 	display: grid;
 	grid-template-columns: repeat(7, $singleItemWidth);
 	// overflow: hidden;
-	transition: transform 0.75s ease-out;
+	transition: transform 1.5s ease-out;
 }
 
 .MercMainContainer_CarouselContainer_Slider--NoTransition {
@@ -285,3 +291,7 @@ $singleItemHeight1023: 65vh;
 .MercMainContainer_CarouselContainer_Slider--Active {
 	cursor: grabbing;
 }
+
+//********************************************************************
+//          remake stuff
+// *******************************************************************
