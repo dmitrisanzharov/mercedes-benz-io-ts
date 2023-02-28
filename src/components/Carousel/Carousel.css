@@ -7,6 +7,10 @@
           user-select: none;
 }
 
+.MercMainContainer_CarouselContainer--NoPointerEvents {
+  pointer-events: none;
+}
+
 .MercMainContainer_CarouselContainer_LeftButton {
   position: absolute;
   background: transparent;
@@ -20,6 +24,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
 }
 
 .MercMainContainer_CarouselContainer_RightButton {
@@ -35,6 +40,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
 }
 
 @media all and (max-width: 1023px) {
@@ -91,7 +97,7 @@
 .MercMainContainer_CarouselContainer_Slider {
   display: grid;
   grid-template-columns: repeat(7, 100vw);
-  transition: transform 0.75s ease-out;
+  transition: transform 1.5s ease-out;
 }
 
 .MercMainContainer_CarouselContainer_Slider--NoTransition {
