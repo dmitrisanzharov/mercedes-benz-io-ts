@@ -143,6 +143,39 @@
     padding-top: 50px;
     padding-bottom: 50px;
   }
+  .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+    height: 65vh;
+  }
+}
+@media all and (max-width: 515px) {
+  .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+    height: 70vh;
+  }
+}
+@media all and (max-width: 430px) {
+  .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+    height: 75vh;
+  }
+}
+@media all and (max-width: 400px) {
+  .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+    height: 80vh;
+  }
+}
+@media all and (max-width: 370px) {
+  .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+    height: 85vh;
+  }
+}
+@media all and (max-width: 356px) {
+  .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+    height: 90vh;
+  }
+}
+@media all and (max-width: 320px) {
+  .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_BackgroundDiv {
+    height: 95vh;
+  }
 }
 .MercMainContainer_CarouselContainer_Slider_SingleItemsContainer_TextBox {
   width: 1070px;

@@ -19,10 +19,6 @@ const Carousel = ({ windowWidth }: Props) => {
 		[]
 	);
 
-	const transitionSpeedForCarousel = 1001; //! not need
-
-	const singleItemWidth = windowWidth; //! not needed, cause single item width IS widnowWidth
-
 	const [translateAmount, setTranslateAmount] = useState(windowWidth);
 	const [isDown, setIsDown] = useState(false);
 	const [startX, setStartX] = useState(0);
@@ -34,19 +30,11 @@ const Carousel = ({ windowWidth }: Props) => {
 	const [clickDirection, setClickDirection] = useState("");
 	// experiemantal states
 
-	// old states and value
-
-	const [activeSlideIdx, setActiveSlideIdx] = useState(0);
-	const [animate, setAnimate] = useState(false);
-	const [translateXValue, setTranslateXValue] = useState(0);
-	const itemsContainer: any = useRef();
-	// moving slider by HAND
-
 	// FUNCTIONS
 
 	function handleMouseDown(e: any) {
 		setIsDown(true);
-		setStartX(e.clientX);
+		setStartX(e.clientX ? e.clientX : e.touches[0].clientX);
 		setCurrentTranslate(translateAmount);
 		setMouseMoved(0);
 		setStopAnime(false);
@@ -67,7 +55,7 @@ const Carousel = ({ windowWidth }: Props) => {
 			return;
 		}
 
-		const mouseMovedVar = e.clientX - startX;
+		const mouseMovedVar = e.clientX ? e.clientX : e.touches[0].clientX - startX;
 		setMouseMoved(mouseMovedVar);
 	}
 
@@ -79,9 +67,9 @@ const Carousel = ({ windowWidth }: Props) => {
 
 		const movedLeft = mouseMoved < 0;
 
-		const movedRightAndBiggerThanHalf = mouseMoved >= singleItemWidth / 2;
+		const movedRightAndBiggerThanHalf = mouseMoved >= windowWidth / 2;
 
-		const movedLeftAndBiggerThanHalf = mouseMoved < singleItemWidth / -2;
+		const movedLeftAndBiggerThanHalf = mouseMoved < windowWidth / -2;
 
 		if (movedRight) {
 			setClickDirection("left");
@@ -99,7 +87,7 @@ const Carousel = ({ windowWidth }: Props) => {
 
 		if (movedRight && !movedRightAndBiggerThanHalf) {
 			// console.log("b");
-			setTranslateAmount(count * singleItemWidth);
+			setTranslateAmount(count * windowWidth);
 			return;
 		}
 
@@ -111,11 +99,11 @@ const Carousel = ({ windowWidth }: Props) => {
 
 		if (movedLeft && !movedLeftAndBiggerThanHalf) {
 			// console.log("d");
-			setTranslateAmount(count * singleItemWidth);
+			setTranslateAmount(count * windowWidth);
 			return;
 		}
 
-		setTranslateAmount(count * singleItemWidth);
+		setTranslateAmount(count * windowWidth);
 	}
 
 	function handleTransitionEnd() {
@@ -143,12 +131,16 @@ const Carousel = ({ windowWidth }: Props) => {
 
 	useEffect(() => {
 		// console.log("count effect", count);
-		setTranslateAmount(count * singleItemWidth);
+		setTranslateAmount(count * windowWidth);
 	}, [count]);
 
 	useEffect(() => {
 		handleTranstionAfterMouseMove();
 	}, [isDown]);
+
+	useEffect(() => {
+		setTranslateAmount(count * windowWidth);
+	}, [windowWidth]);
 
 	return (
 		<>
@@ -161,6 +153,11 @@ const Carousel = ({ windowWidth }: Props) => {
 				onMouseUp={handleMouseUp}
 				onMouseLeave={handleMouseLeave}
 				onMouseMove={(e) => handleMouseMove(e)}
+				// mouse touch events
+				onTouchStart={(e) => handleMouseDown(e)}
+				onTouchEnd={handleMouseUp}
+				onTouchCancel={handleMouseUp}
+				onTouchMove={(e) => handleMouseMove(e)}
 			>
 				{/* BUTTONS */}
 				<button
