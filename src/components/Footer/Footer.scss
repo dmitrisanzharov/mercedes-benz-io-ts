@@ -1,0 +1,177 @@
+@import "../../variables";
+
+.FooterContainer {
+	color: white;
+	padding: 45px 73px 80px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	background-color: black;
+}
+
+@media all and (max-width: 1023px) {
+	.FooterContainer {
+		padding-top: 25px;
+		padding-inline: 0px;
+		padding-bottom: 54px;
+	}
+}
+
+//********************************************************************
+//         Logo And Text
+// *******************************************************************
+.FooterContainer_LogoAndTextContainer {
+	max-width: 1070px;
+	margin-inline: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.FooterContainer_LogoAndTextContainer_Logo {
+	width: fit-content;
+}
+
+.FooterContainer_LogoAndTextContainer_Logo img {
+	height: 18px;
+	width: 197px;
+}
+
+.FooterContainer_LogoAndTextContainer_NavItems {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 35px;
+}
+
+.FooterContainer_LogoAndTextContainer_NavItems_SingleItem {
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 800;
+	background-color: black;
+	border: none;
+	color: white;
+	padding: 3px 0px;
+}
+
+.FooterContainer_LogoAndTextContainer_NavItems_SingleItem:hover {
+	color: $merc-blue;
+}
+
+.FooterContainer_LogoAndTextContainer_NavItems_SingleItem--Active {
+	color: $merc-blue;
+}
+
+@media all and (max-width: 1023px) {
+	.FooterContainer_LogoAndTextContainer {
+		width: 90%;
+	}
+
+	.FooterContainer_LogoAndTextContainer_Logo img {
+		height: 14px;
+		width: 142px;
+	}
+
+	.FooterContainer_LogoAndTextContainer_NavItems {
+		display: none;
+	}
+}
+
+//********************************************************************
+//        Social Items container
+// *******************************************************************
+.FooterContainer_SocialIconsContainer {
+	max-width: 1070px;
+	margin-inline: auto;
+	margin-top: 110px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.FooterContainer_SocialIconsContainer_Text {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.FooterContainer_SocialIconsContainer_Text_RightsReserved {
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 300;
+}
+
+.FooterContainer_SocialIconsContainer_Text_DataNotice {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	padding-left: 16px;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 300;
+}
+
+.FooterContainer_SocialIconsContainer_Text_DataNotice_Hoverable:hover {
+	color: $merc-blue;
+	cursor: pointer;
+}
+
+.FooterContainer_SocialIconsContainer_SocialItems {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 3px;
+	padding-bottom: 13px;
+}
+
+.FooterContainer_SocialIconsContainer_SocialItems_SingleIcon {
+	width: 47px;
+	height: 50px;
+	cursor: pointer;
+	padding: 9px;
+}
+
+.FooterContainer_SocialIconsContainer_SocialItems_SingleIcon img {
+	color: white;
+}
+
+@media all and (max-width: 1023px) {
+	.FooterContainer_SocialIconsContainer {
+		width: 90%;
+		margin-top: 55px;
+		flex-direction: column-reverse;
+		align-items: start;
+	}
+
+	.FooterContainer_SocialIconsContainer_SocialItems {
+		padding-bottom: 0px;
+		margin-bottom: 53px;
+		width: 100%;
+	}
+
+	.FooterContainer_SocialIconsContainer_Text {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.FooterContainer_SocialIconsContainer_Text_RightsReserved,
+	.FooterContainer_SocialIconsContainer_Text_DataNotice {
+		font-size: 12px;
+		line-height: 23px;
+		font-weight: 300;
+	}
+
+	.FooterContainer_SocialIconsContainer_Text_DataNotice {
+		padding-left: 0px;
+	}
+
+	.FooterContainer_SocialIconsContainer_Text_DataNotice div:nth-child(1) {
+		display: none;
+	}
+}

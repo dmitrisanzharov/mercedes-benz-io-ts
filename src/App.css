@@ -115,6 +115,20 @@
   animation-timing-function: ease-out;
 }
 
+.body1 {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.MercMainContainer {
+  margin-bottom: 330px;
+}
+
+@media all and (max-width: 1023px) {
+  .MercMainContainer {
+    margin-bottom: 300px;
+  }
+}
 ::-webkit-scrollbar {
   height: 12px;
   width: 12px;
@@ -323,6 +337,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .MercMainContainer_NeonWavesContainer_Video {
