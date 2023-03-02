@@ -24,7 +24,7 @@ const Carousel = ({ windowWidth }: Props) => {
 	const [startX, setStartX] = useState(0);
 	const [mouseMoved, setMouseMoved] = useState(0);
 	const [currentTranslate, setCurrentTranslate] = useState(0);
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(2);
 	const [stopAnime, setStopAnime] = useState(false);
 	const [btnDisable, setBtnDisable] = useState(false);
 	const [clickDirection, setClickDirection] = useState("");
@@ -55,7 +55,9 @@ const Carousel = ({ windowWidth }: Props) => {
 			return;
 		}
 
-		const mouseMovedVar = e.clientX ? e.clientX : e.touches[0].clientX - startX;
+		const mouseMovedVar = e.clientX
+			? e.clientX - startX
+			: e.touches[0].clientX - startX;
 		setMouseMoved(mouseMovedVar);
 	}
 
@@ -132,6 +134,7 @@ const Carousel = ({ windowWidth }: Props) => {
 	useEffect(() => {
 		// console.log("count effect", count);
 		setTranslateAmount(count * windowWidth);
+		setBtnDisable(true);
 	}, [count]);
 
 	useEffect(() => {
@@ -142,12 +145,30 @@ const Carousel = ({ windowWidth }: Props) => {
 		setTranslateAmount(count * windowWidth);
 	}, [windowWidth]);
 
+	useEffect(() => {
+		const timeOut = setTimeout(() => {
+			setBtnDisable(false);
+		}, 1401);
+		return () => clearTimeout(timeOut);
+	}, [count]);
+
+	// useEffect(() => {
+	// 	console.log("translateAmount", translateAmount);
+	// 	console.log("isDown", isDown);
+	// 	console.log("startX", startX);
+	// 	console.log("mouseMoved", mouseMoved);
+	// 	console.log("currentTranslate", currentTranslate);
+	// 	console.log("count", count);
+	// 	console.log("-------------------------");
+	// }, [translateAmount]);
+
 	return (
 		<>
 			{/* this is items holder */}
 			<div
 				className={classNames("MercMainContainer_CarouselContainer", {
 					"MercMainContainer_CarouselContainer--NoPointerEvents": btnDisable,
+					"MercMainContainer_CarouselContainer_Slider--Active": isDown,
 				})}
 				onMouseDown={(e) => handleMouseDown(e)}
 				onMouseUp={handleMouseUp}
